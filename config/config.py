@@ -53,3 +53,29 @@ FEATURE_COLS = [
 # OpenCelliD License Attribution
 OPENCELLID_ATTRIBUTION = "Data from OpenCelliD licensed under CC BY-SA 4.0"
 GEE_ATTRIBUTION = "Data powered by Google Earth Engine"
+
+
+def get_data_mode():
+    """
+    Returns runtime data ingestion mode:
+    'LIVE_GEE' if Earth Engine authenticated and initialized,
+    'OFFLINE_SIMULATION' if using pre-cached / deterministic topographic simulation harness.
+    """
+    try:
+        import ee
+        if getattr(ee.data, "_credentials", None) is not None:
+            return {
+                "mode": "LIVE_GEE",
+                "badge": "🟢 Live Data",
+                "label": "Google Earth Engine Live Connection",
+                "color": "#4CAF7D"
+            }
+    except Exception:
+        pass
+    return {
+        "mode": "OFFLINE_SIMULATION",
+        "badge": "🟡 Offline Simulation Mode",
+        "label": "Topographic Offline Simulation Harness",
+        "color": "#F2A541"
+    }
+

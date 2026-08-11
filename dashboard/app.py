@@ -11,7 +11,8 @@ import sys
 
 # Add project root to sys.path
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.append(str(BASE_DIR))
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 
 from config.config import (
     KLANG_VALLEY_BBOX,
@@ -20,9 +21,10 @@ from config.config import (
     OPENCELLID_ATTRIBUTION,
     GEE_ATTRIBUTION,
     PROCESSED_DATA_DIR,
-    CACHE_DIR
+    CACHE_DIR,
+    get_data_mode
 )
-from src.modules.ingestion import OpenCelliDTowerIngestion, extract_tower_spatial_features, get_data_mode
+from src.modules.ingestion import OpenCelliDTowerIngestion, extract_tower_spatial_features
 from src.modules.ml_engine import TeleShieldMLEngine, compute_did_agreement
 from src.modules.explainability import TeleShieldExplainability
 from src.modules.feedback_loop import TeleShieldFeedbackLoop

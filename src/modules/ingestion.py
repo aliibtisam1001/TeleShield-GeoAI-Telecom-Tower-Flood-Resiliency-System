@@ -43,7 +43,7 @@ def get_data_mode():
             if getattr(ee.data, "_credentials", None) is not None:
                 return {
                     "mode": "LIVE_GEE",
-                    "badge": "🟢 Live GEE Mode",
+                    "badge": "🟢 Live Data",
                     "label": "Google Earth Engine Live Connection",
                     "color": "#4CAF7D"
                 }
@@ -51,7 +51,7 @@ def get_data_mode():
             pass
     return {
         "mode": "OFFLINE_SIMULATION",
-        "badge": "🟡 Deterministic Fallback Mode",
+        "badge": "🟡 Offline Simulation Mode",
         "label": "Topographic Offline Simulation Harness",
         "color": "#F2A541"
     }

@@ -101,18 +101,26 @@ The system validates its predictions against real historical ground-truth record
 
 ---
 
-## 🛰️ Runtime Data Modes & Architecture Transparency
+## 🛰️ Data Modes & Architecture Transparency
 
-TeleShield supports two runtime data ingestion modes with automatic failover and live status indication in the dashboard header:
+TeleShield supports two runtime data ingestion modes with automatic failover and live runtime badge indication in the dashboard header:
 
-1. **🟢 Live GEE Mode (`LIVE_GEE`)**:
-   - Activates when authenticated with Google Earth Engine API credentials (`ee.Initialize()`).
-   - Queries live Earth Engine image collections (Copernicus Sentinel-1/2, USGS SRTM, JRC Water, and UCSB CHIRPS) across the Klang Valley bounding box `[101.30°E, 2.85°N, 101.85°E, 3.35°N]`.
+1. **🟢 Live Data Mode (`LIVE_GEE`)**:
+   - **Trigger**: Activates automatically when Google Earth Engine (GEE) and OpenCelliD API credentials are authenticated (`ee.Initialize()`).
+   - **Live Ingestion**: Directly streams live Earth Engine image collections across the Klang Valley bounding box `[101.30°E, 2.85°N, 101.85°E, 3.35°N]`, including USGS SRTM 30m DEM, Copernicus Sentinel-1/2, JRC Global Surface Water, and UCSB CHIRPS Daily Rainfall.
 
-2. **🟡 Deterministic Fallback Mode (`OFFLINE_SIMULATION`)**:
-   - Engineered for seamless, self-contained hackathon evaluation and offline judging without external authentication barriers.
-   - **Real Ground Truth Maintained**: Uses bundled, real OpenCelliD cell tower coordinates (MCC 502, 248 sites) and historical Department of Irrigation & Drainage (DID) Dec 2021 disaster ground-truth flood locations (Taman Sri Nanding, Taman Sri Muda, Meru, Dengkil).
-   - **Deterministic Topographic Simulation Harness**: For offline runtime environments, extracts hydrological terrain metrics (elevation profiles, river proximity gradients to Klang and Langat rivers, and Dec 2021 monsoon antecedent rainfall distribution) deterministically from local rasters and calibrated spatial formulas.
+2. **🟡 Offline Simulation Mode (`OFFLINE_SIMULATION`)**:
+   - **Trigger**: Activates when running in self-contained judging environments without active GEE cloud authentication keys.
+   - **Real Ground-Truth Inputs Retained**:
+     - **Cell Tower Coordinates & Metadata**: Bundled real OpenCelliD tower locations (MCC 502, 248 cell sites mapped to Maxis, Celcom, Digi, and U Mobile across 8 administrative sub-districts).
+     - **DID Dec 2021 Disaster Hotspots**: Real historical flood inundation polygons and severity records from the Department of Irrigation and Drainage (DID) Malaysia (Taman Sri Muda, Meru/Bukit Raja, Shah Alam Seksyen 13, Taman Sri Nanding, Dengkil, Kampung Baru).
+   - **Simulated Topographic & Hydrological Features**:
+     - *Elevation & Slope*: Deterministically calculated based on Klang Valley's known coastal-to-highland terrain gradients (coastal lowlands 2–12m; central urban core 15–50m; Hulu Langat foothills 50–200m).
+     - *River Proximity & Water Occurrence*: Euclidean spatial distance to primary river channels (Klang, Langat, Damansara Rivers) and calibrated surface water occurrence percentages.
+     - *Antecedent Rainfall*: Deterministic simulation of the extreme December 2021 monsoon event (3-day cumulative rainfall 110–185mm; 7-day cumulative rainfall 180–316mm).
+     - *Vegetation Index (NDVI)*: Inverse hydrological saturation profile (0.05 to 0.85).
+
+> **UI Runtime Indicator**: The top-right status bar of the dashboard displays a live badge (`🟢 Live Data` or `🟡 Offline Simulation Mode`) indicating which mode is active at runtime. The **86.75% DID Agreement** benchmark validates the model's spatial classifications against official DID Dec 2021 historical flood records.
 
 ---
 
