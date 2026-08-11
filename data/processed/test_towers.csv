@@ -1,0 +1,84 @@
+tower_id,lat,lon,mcc,mnc,operator,radio,cell_id,created_at,attribution,district,region_tag,elevation,slope,dist_to_river_km,water_occurrence_pct,ndvi,rainfall_3d_mm,rainfall_7d_mm,flood_label,label_source
+MY-CELL-502-16-90623,3.0549,101.36681,502,16,Digi,LTE,90623,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.3,1.1,2.21,44.9,0.35,179.1,285.6,0,None
+MY-CELL-502-01-52107,3.03585,101.36411,502,1,U Mobile,LTE,52107,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.9,1.6,1.82,45.7,0.29,173.4,276.4,0,None
+MY-CELL-502-19-59811,3.05943,101.42438,502,19,Celcom,GSM,59811,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,11.9,0.5,3.03,0.0,0.42,159.7,274.4,0,None
+MY-CELL-502-01-82082,3.08569,101.44069,502,1,U Mobile,LTE,82082,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.9,0.5,4.09,5.9,0.42,186.7,275.3,1,DID_Dec2021_Records
+MY-CELL-502-16-21411,3.03298,101.39784,502,16,Digi,LTE,21411,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,8.5,1.3,2.13,32.5,0.34,170.0,275.6,0,None
+MY-CELL-502-01-18680,3.03298,101.43011,502,1,U Mobile,UMTS,18680,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.4,2.1,2.91,3.0,0.39,205.6,297.3,0,None
+MY-CELL-502-12-21111,3.08738,101.41085,502,12,Maxis,LTE,21111,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,19.3,0.5,6.01,0.3,0.46,203.5,316.1,0,None
+MY-CELL-502-12-18155,3.06302,101.38065,502,12,Maxis,LTE,18155,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.2,1.0,2.56,0.0,0.41,173.5,299.4,0,None
+MY-CELL-502-12-57254,3.02592,101.41084,502,12,Maxis,LTE,57254,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,13.9,0.5,3.76,3.6,0.42,168.1,287.3,0,None
+MY-CELL-502-19-40306,3.05628,101.44614,502,19,Celcom,LTE,40306,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,7.6,1.7,0.82,67.8,0.16,193.3,317.9,0,None
+MY-CELL-502-19-26371,3.0261,101.39893,502,19,Celcom,UMTS,26371,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,9.8,1.1,2.61,0.8,0.39,205.3,335.6,0,None
+MY-CELL-502-01-12049,3.02603,101.44694,502,1,U Mobile,LTE,12049,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.6,1.7,2.68,3.7,0.4,194.0,327.1,0,None
+MY-CELL-502-12-30932,3.04726,101.32141,502,12,Maxis,UMTS,30932,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,20.3,2.0,6.55,0.0,0.49,187.2,292.7,0,None
+MY-CELL-502-12-82694,2.9826,101.42466,502,12,Maxis,LTE,82694,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,24.1,0.5,7.99,2.6,0.46,221.9,324.1,0,None
+MY-CELL-502-12-52642,2.98825,101.40261,502,12,Maxis,LTE,52642,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,18.5,0.9,6.27,4.8,0.45,171.8,289.5,0,None
+MY-CELL-502-01-14499,3.02313,101.39103,502,1,U Mobile,LTE,14499,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,9.7,1.7,2.24,33.4,0.3,175.2,263.2,0,None
+MY-CELL-502-01-22183,3.00962,101.40275,502,1,U Mobile,LTE,22183,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,15.0,1.3,4.21,3.0,0.43,149.6,253.3,0,None
+MY-CELL-502-01-42711,3.04943,101.34037,502,1,U Mobile,LTE,42711,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,14.8,0.8,4.52,2.7,0.46,232.2,344.8,0,None
+MY-CELL-502-01-58354,3.01276,101.39341,502,1,U Mobile,UMTS,58354,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.8,1.2,3.37,0.0,0.45,186.5,333.4,0,None
+MY-CELL-502-01-92018,2.99763,101.41071,502,1,U Mobile,LTE,92018,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,18.2,1.4,5.81,2.9,0.38,213.6,334.9,0,None
+MY-CELL-502-12-78497,3.08397,101.44434,502,12,Maxis,GSM,78497,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,14.7,0.7,3.82,5.8,0.36,199.7,342.6,1,DID_Dec2021_Records
+MY-CELL-502-01-87505,3.03323,101.38445,502,1,U Mobile,LTE,87505,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,4.8,0.9,0.9,73.3,0.13,146.2,257.2,1,JRC_Surface_Water_Occurrence
+MY-CELL-502-16-71135,3.04203,101.37575,502,16,Digi,LTE,71135,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,3.7,1.4,0.52,74.6,0.23,165.4,270.6,1,JRC_Surface_Water_Occurrence
+MY-CELL-502-12-48467,2.99726,101.38495,502,12,Maxis,LTE,48467,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,17.2,0.6,4.78,3.5,0.5,144.8,257.6,0,None
+MY-CELL-502-12-96831,3.02367,101.42746,502,12,Maxis,GSM,96831,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,14.0,1.6,3.85,0.5,0.38,198.0,312.5,0,None
+MY-CELL-502-01-96416,3.04333,101.40986,502,1,U Mobile,LTE,96416,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.7,1.4,3.34,1.6,0.46,192.3,291.6,0,None
+MY-CELL-502-01-80091,3.00547,101.38411,502,1,U Mobile,LTE,80091,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,16.4,1.4,3.86,0.6,0.48,160.6,282.4,0,None
+MY-CELL-502-19-55525,3.05127,101.4154,502,19,Celcom,LTE,55525,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,15.3,0.8,3.84,4.9,0.45,205.6,344.1,0,None
+MY-CELL-502-19-84290,3.02198,101.40291,502,19,Celcom,GSM,84290,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,11.7,0.8,3.24,1.2,0.4,183.1,298.2,0,None
+MY-CELL-502-16-40746,3.03125,101.42906,502,16,Digi,LTE,40746,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.2,1.6,3.12,3.0,0.51,178.4,329.2,0,None
+MY-CELL-502-16-64045,3.02195,101.37894,502,16,Digi,GSM,64045,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.0,0.8,2.01,36.2,0.33,179.4,300.1,0,None
+MY-CELL-502-12-49790,3.09557,101.39017,502,12,Maxis,UMTS,49790,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,20.4,1.2,6.27,1.3,0.37,173.8,296.6,0,None
+MY-CELL-502-01-50764,3.0396,101.38824,502,1,U Mobile,LTE,50764,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,6.6,0.6,0.92,73.4,0.18,162.9,275.2,0,None
+MY-CELL-502-01-66835,3.00827,101.35609,502,1,U Mobile,LTE,66835,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,15.1,0.6,4.41,3.7,0.46,212.1,337.9,0,None
+MY-CELL-502-19-83744,3.06468,101.40888,502,19,Celcom,LTE,83744,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.5,0.7,4.22,4.0,0.46,197.9,365.7,0,None
+MY-CELL-502-01-28589,3.00337,101.40783,502,1,U Mobile,UMTS,28589,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,17.6,1.8,5.11,4.9,0.46,177.1,298.5,0,None
+MY-CELL-502-12-53525,3.04627,101.40015,502,12,Maxis,GSM,53525,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,8.7,1.1,2.34,32.6,0.32,242.9,324.9,0,None
+MY-CELL-502-19-73208,2.98121,101.39296,502,19,Celcom,UMTS,73208,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,21.7,0.5,6.68,2.1,0.5,186.6,280.4,0,None
+MY-CELL-502-12-10301,3.00015,101.35754,502,12,Maxis,GSM,10301,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,15.6,1.5,5.08,1.5,0.45,186.1,286.3,0,None
+MY-CELL-502-12-76235,3.04591,101.38738,502,12,Maxis,LTE,76235,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,9.8,1.5,1.05,52.5,0.25,168.5,291.3,0,None
+MY-CELL-502-12-75726,3.06215,101.38972,502,12,Maxis,UMTS,75726,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,9.5,1.1,2.68,4.0,0.48,155.0,260.0,0,None
+MY-CELL-502-12-16102,3.04514,101.37593,502,12,Maxis,GSM,16102,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,5.1,0.9,0.73,90.9,0.11,153.5,277.3,1,JRC_Surface_Water_Occurrence
+MY-CELL-502-12-36641,3.03653,101.39516,502,12,Maxis,LTE,36641,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,11.5,1.7,1.73,39.6,0.27,216.7,316.1,0,None
+MY-CELL-502-12-33093,3.03097,101.41212,502,12,Maxis,LTE,33093,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,13.9,1.6,3.7,1.1,0.44,104.0,198.6,0,None
+MY-CELL-502-16-61885,2.99564,101.45659,502,16,Digi,LTE,61885,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,18.8,0.6,6.08,6.3,0.35,174.0,286.0,0,None
+MY-CELL-502-01-82991,3.0184,101.40524,502,1,U Mobile,LTE,82991,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,15.4,0.5,3.69,5.3,0.43,160.5,277.4,0,None
+MY-CELL-502-19-66958,3.02618,101.40773,502,19,Celcom,LTE,66958,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.9,0.9,3.44,3.1,0.42,187.8,307.7,0,None
+MY-CELL-502-19-55017,3.07171,101.39777,502,19,Celcom,LTE,55017,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,16.5,0.6,4.03,7.3,0.32,181.2,300.0,0,None
+MY-CELL-502-12-88069,3.05031,101.34244,502,12,Maxis,LTE,88069,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,15.2,0.9,4.32,2.6,0.41,170.3,293.0,0,None
+MY-CELL-502-01-15801,2.98711,101.3992,502,1,U Mobile,GSM,15801,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,20.2,0.9,6.25,4.8,0.45,205.3,324.7,0,None
+MY-CELL-502-19-60993,3.04972,101.40181,502,19,Celcom,LTE,60993,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,9.4,0.9,2.65,4.5,0.46,184.5,296.3,0,None
+MY-CELL-502-16-80316,3.01969,101.39423,502,16,Digi,LTE,80316,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.1,1.6,2.75,5.6,0.43,202.0,307.3,0,None
+MY-CELL-502-01-87575,3.05835,101.40905,502,1,U Mobile,LTE,87575,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,14.0,1.1,3.81,3.2,0.47,164.5,305.9,0,None
+MY-CELL-502-01-97922,3.07093,101.39896,502,1,U Mobile,UMTS,97922,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.6,0.6,4.03,5.3,0.47,200.6,320.0,0,None
+MY-CELL-502-19-42097,3.06794,101.36494,502,19,Celcom,UMTS,42097,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.8,0.8,3.52,3.2,0.4,209.4,317.2,0,None
+MY-CELL-502-16-62921,3.01482,101.43428,502,16,Digi,LTE,62921,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,13.5,1.0,4.28,3.8,0.41,164.4,278.1,0,None
+MY-CELL-502-19-32677,3.03072,101.42256,502,19,Celcom,GSM,32677,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,13.7,0.9,3.72,2.1,0.45,148.8,237.7,0,None
+MY-CELL-502-16-66661,3.04994,101.42373,502,16,Digi,LTE,66661,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.2,1.1,2.92,3.6,0.51,206.4,314.0,0,None
+MY-CELL-502-12-80313,3.06927,101.37272,502,12,Maxis,UMTS,80313,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,12.3,0.7,3.35,3.0,0.42,193.1,290.7,0,None
+MY-CELL-502-16-78027,3.02562,101.44208,502,16,Digi,LTE,78027,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,11.9,2.0,2.85,2.8,0.46,202.3,306.3,0,None
+MY-CELL-502-12-90135,3.03443,101.35794,502,12,Maxis,LTE,90135,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Klang,Suburban_Fringe,10.7,1.2,2.53,3.2,0.4,185.6,303.1,0,None
+MY-CELL-502-16-58136,3.07091,101.55172,502,16,Digi,UMTS,58136,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,18.3,5.1,1.78,0.9,0.51,78.1,142.1,1,DID_Dec2021_Records
+MY-CELL-502-01-20975,3.06881,101.54198,502,1,U Mobile,LTE,20975,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,23.1,5.5,1.0,1.2,0.43,126.6,174.5,1,DID_Dec2021_Records
+MY-CELL-502-16-71529,3.06495,101.54611,502,16,Digi,UMTS,71529,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,26.5,2.5,0.87,44.3,0.28,100.4,175.2,1,DID_Dec2021_Records
+MY-CELL-502-12-18415,3.07398,101.54316,502,12,Maxis,LTE,18415,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,25.2,2.8,1.59,0.7,0.45,99.1,162.0,1,DID_Dec2021_Records
+MY-CELL-502-16-37696,3.0258,101.5739,502,16,Digi,GSM,37696,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,42.5,1.2,5.35,0.8,0.33,78.3,155.9,0,None
+MY-CELL-502-19-56163,3.03879,101.55822,502,19,Celcom,LTE,56163,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,37.4,4.0,3.1,0.5,0.45,109.9,168.3,0,None
+MY-CELL-502-16-31566,3.05363,101.55748,502,16,Digi,UMTS,31566,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,27.1,2.7,2.07,0.5,0.43,146.0,222.4,0,None
+MY-CELL-502-12-30806,3.02704,101.57597,502,12,Maxis,LTE,30806,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,42.2,4.2,5.42,1.7,0.49,111.2,174.7,0,None
+MY-CELL-502-12-51949,3.02199,101.5734,502,12,Maxis,GSM,51949,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,49.6,4.0,5.62,1.4,0.48,131.0,195.6,0,None
+MY-CELL-502-12-86534,3.03579,101.55625,502,12,Maxis,LTE,86534,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,37.9,3.4,3.24,1.0,0.35,128.3,201.8,0,None
+MY-CELL-502-12-95230,3.01705,101.56805,502,12,Maxis,LTE,95230,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,49.5,2.2,5.69,0.7,0.54,106.2,178.4,0,None
+MY-CELL-502-19-16150,3.0429,101.55666,502,19,Celcom,LTE,16150,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,30.5,3.7,2.65,0.9,0.45,88.1,143.7,0,None
+MY-CELL-502-12-97955,3.06773,101.55705,502,12,Maxis,GSM,97955,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Subang Jaya,Urban_Core,28.9,3.4,2.08,0.6,0.43,76.1,145.1,0,None
+MY-CELL-502-12-42733,3.0719,101.78301,502,12,Maxis,LTE,42733,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,34.3,6.5,0.96,65.8,0.21,214.8,339.0,1,DID_Dec2021_Records
+MY-CELL-502-12-43933,3.11002,101.82171,502,12,Maxis,LTE,43933,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,55.8,1.5,5.7,2.9,0.37,179.4,271.8,0,None
+MY-CELL-502-01-65619,3.07915,101.82427,502,1,U Mobile,LTE,65619,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,46.3,7.9,4.91,2.8,0.41,120.2,222.0,0,None
+MY-CELL-502-16-50600,3.12556,101.81094,502,16,Digi,GSM,50600,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,77.8,2.8,6.11,2.2,0.44,199.5,311.3,0,None
+MY-CELL-502-01-45400,3.09478,101.83446,502,1,U Mobile,LTE,45400,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,65.3,9.5,6.26,1.8,0.44,161.7,265.1,0,None
+MY-CELL-502-19-99431,3.1027,101.79633,502,19,Celcom,LTE,99431,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,41.0,6.1,3.1,3.7,0.37,144.7,276.8,0,None
+MY-CELL-502-01-53001,3.10825,101.7998,502,1,U Mobile,UMTS,53001,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,53.5,4.8,3.83,3.0,0.41,230.7,350.9,0,None
+MY-CELL-502-19-47573,3.08699,101.8284,502,19,Celcom,UMTS,47573,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,84.1,6.6,5.43,1.2,0.47,168.1,308.3,0,None
+MY-CELL-502-19-39757,3.12087,101.81628,502,19,Celcom,LTE,39757,2023-05-15,Data from OpenCelliD licensed under CC BY-SA 4.0,Hulu Langat,Suburban_Fringe,74.9,5.6,6.07,2.2,0.37,160.7,288.7,0,None
