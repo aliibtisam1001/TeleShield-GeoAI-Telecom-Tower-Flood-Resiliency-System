@@ -21,8 +21,7 @@ from config.config import (
     OPENCELLID_ATTRIBUTION,
     GEE_ATTRIBUTION,
     PROCESSED_DATA_DIR,
-    CACHE_DIR,
-    get_data_mode
+    CACHE_DIR
 )
 from src.modules.ingestion import OpenCelliDTowerIngestion, extract_tower_spatial_features
 from src.modules.ml_engine import TeleShieldMLEngine, compute_did_agreement
@@ -271,7 +270,6 @@ refresh_log = load_refresh_timestamp()
 fb_engine = TeleShieldFeedbackLoop()
 explainer = TeleShieldExplainability()
 auditor = TeleShieldFairnessAudit()
-data_mode_info = get_data_mode()
 
 # Compute live dynamic DID validation agreement metric (Fix 1)
 did_validation_results = compute_did_agreement(df_towers)
@@ -293,12 +291,9 @@ with col_h1:
 
 with col_h2:
     last_up_str = refresh_log.get('last_updated', 'N/A')
-    mode_badge = data_mode_info["badge"]
-    mode_color = data_mode_info["color"]
     st.markdown(f"""
     <div class="status-bar-box">
         <div><b>System Refresh:</b> <code>{last_up_str}</code></div>
-        <div><b>Data Mode:</b> <span style="font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:{mode_color}; font-weight:600;">{mode_badge}</span></div>
     </div>
     """, unsafe_allow_html=True)
     if st.button("🔄 Simulate Daily Refresh (06:00 AM)", use_container_width=True):
