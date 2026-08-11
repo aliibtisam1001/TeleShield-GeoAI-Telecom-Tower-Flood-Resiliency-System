@@ -1,6 +1,11 @@
 # 🛡️ TeleShield — GeoAI Telecom Tower Flood Resiliency System
 ### ASEAN GeoAI Fusion 2026 Hackathon (Telecommunications Challenge Domain, ESG Theme)
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System&branch=main&mainModule=dashboard/app.py)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-TeleShield-100000?style=flat&logo=github&logoColor=white)](https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
 TeleShield is an end-to-end GeoAI and machine learning ensemble system engineered to predict flood risks for telecommunications cell towers across **Klang Valley, Selangor, Malaysia** (`[101.30°E, 2.85°N, 101.85°E, 3.35°N]`). 
 
 The system validates its predictions against real historical ground-truth records from the **Department of Irrigation and Drainage (DID) Malaysia** (specifically the catastrophic December 2021 Klang Valley floods), explains individual predictions via **SHAP**, audits sub-regional fairness between Urban Core and Suburban Fringe districts, provides human-in-the-loop SQLite feedback with on-demand model retraining, and refreshes daily via an automated pipeline.
@@ -92,11 +97,24 @@ python -m src.modules.ml_engine
 python -m src.refresh_pipeline
 ```
 
-### 4. Launch Interactive Streamlit Dashboard
+### 4. Launch Interactive Streamlit Dashboard Locally
 ```bash
 streamlit run dashboard/app.py
 ```
 The dashboard will open automatically in your web browser at `http://localhost:8501`.
+
+---
+
+## 🌐 Deploy to Streamlit Community Cloud (1-Click)
+
+To deploy and host TeleShield live in the cloud:
+1. Click the **[Open in Streamlit](https://share.streamlit.io/deploy?repository=aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System&branch=main&mainModule=dashboard/app.py)** link.
+2. Sign in with your GitHub account (`aliibtisam1001`).
+3. Streamlit Cloud will pre-fill:
+   - **Repository**: `aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System`
+   - **Branch**: `main`
+   - **Main file path**: `dashboard/app.py`
+4. Click **Deploy!** — your live cloud app will be provisioned in under 2 minutes.
 
 ---
 
