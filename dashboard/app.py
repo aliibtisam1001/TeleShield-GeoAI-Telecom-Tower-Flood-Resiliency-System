@@ -651,7 +651,18 @@ with tab_multimodal:
 
 
 # =====================================================================
-# Footer Attribution
+# Footer Attribution & Metadata
 # =====================================================================
 st.divider()
-st.caption(f"🛡️ **TeleShield** Prototype | {GEE_ATTRIBUTION} & {OPENCELLID_ATTRIBUTION}")
+st.markdown(f"""
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.80rem; color: #9BA8B5; padding-top: 4px;">
+    <div>
+        🛡️ <b>TeleShield</b> — ASEAN GeoAI Fusion 2026 Hackathon Prototype
+    </div>
+    <div>
+        <span>{GEE_ATTRIBUTION}</span> &bull; 
+        <span>{OPENCELLID_ATTRIBUTION}</span> &bull; 
+        <a href="https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System" target="_blank" style="color: #3FA7A0; text-decoration: none; font-weight: 600;">GitHub Source</a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
