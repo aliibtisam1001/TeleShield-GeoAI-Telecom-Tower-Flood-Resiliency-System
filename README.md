@@ -101,6 +101,21 @@ The system validates its predictions against real historical ground-truth record
 
 ---
 
+## 🛰️ Runtime Data Modes & Architecture Transparency
+
+TeleShield supports two runtime data ingestion modes with automatic failover and live status indication in the dashboard header:
+
+1. **🟢 Live GEE Mode (`LIVE_GEE`)**:
+   - Activates when authenticated with Google Earth Engine API credentials (`ee.Initialize()`).
+   - Queries live Earth Engine image collections (Copernicus Sentinel-1/2, USGS SRTM, JRC Water, and UCSB CHIRPS) across the Klang Valley bounding box `[101.30°E, 2.85°N, 101.85°E, 3.35°N]`.
+
+2. **🟡 Deterministic Fallback Mode (`OFFLINE_SIMULATION`)**:
+   - Engineered for seamless, self-contained hackathon evaluation and offline judging without external authentication barriers.
+   - **Real Ground Truth Maintained**: Uses bundled, real OpenCelliD cell tower coordinates (MCC 502, 248 sites) and historical Department of Irrigation & Drainage (DID) Dec 2021 disaster ground-truth flood locations (Taman Sri Nanding, Taman Sri Muda, Meru, Dengkil).
+   - **Deterministic Topographic Simulation Harness**: For offline runtime environments, extracts hydrological terrain metrics (elevation profiles, river proximity gradients to Klang and Langat rivers, and Dec 2021 monsoon antecedent rainfall distribution) deterministically from local rasters and calibrated spatial formulas.
+
+---
+
 ## 🖥️ Dashboard Features & Operational Interface
 
 ### Tab 1: Interactive Folium Risk Map

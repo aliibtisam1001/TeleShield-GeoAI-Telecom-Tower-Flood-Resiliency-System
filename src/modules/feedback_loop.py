@@ -19,13 +19,14 @@ class TeleShieldFeedbackLoop:
         self._init_db()
 
     def _init_db(self):
-        """Initializes SQLite database table for user risk overrides."""
+        """Initializes SQLite database table for user risk overrides with officer tracking."""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
 
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS feedback_log (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                officer_id TEXT NOT NULL DEFAULT 'ENG-001',
                 tower_id TEXT NOT NULL,
                 predicted_score REAL NOT NULL,
                 user_corrected_label INTEGER NOT NULL,
@@ -34,27 +35,39 @@ class TeleShieldFeedbackLoop:
             )
         """)
         conn.commit()
+
+        # Lightweight schema migration for existing databases without officer_id
+        cursor.execute("PRAGMA table_info(feedback_log)")
+        columns = [col[1] for col in cursor.fetchall()]
+        if "officer_id" not in columns:
+            cursor.execute("ALTER TABLE feedback_log ADD COLUMN officer_id TEXT NOT NULL DEFAULT 'ENG-001'")
+            conn.commit()
+            logger.info("Migrated SQLite schema: added officer_id column.")
+
         conn.close()
         logger.info(f"Initialized SQLite feedback database at {self.db_path}")
 
-    def log_feedback(self, tower_id, predicted_score, user_corrected_label, notes="Manual risk override"):
-        """Logs manual user correction to SQLite table."""
+    def log_feedback(self, tower_id, predicted_score, user_corrected_label, officer_id="ENG-001", notes="Manual risk override"):
+        """Logs manual user correction with officer ID to SQLite table."""
+        if not officer_id or not str(officer_id).strip():
+            officer_id = "ENG-001"
+            
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
 
         cursor.execute("""
-            INSERT INTO feedback_log (tower_id, predicted_score, user_corrected_label, notes)
-            VALUES (?, ?, ?, ?)
-        """, (tower_id, float(predicted_score), int(user_corrected_label), notes))
+            INSERT INTO feedback_log (officer_id, tower_id, predicted_score, user_corrected_label, notes)
+            VALUES (?, ?, ?, ?, ?)
+        """, (str(officer_id).strip(), tower_id, float(predicted_score), int(user_corrected_label), notes))
 
         conn.commit()
         conn.close()
-        logger.info(f"Logged user correction for tower {tower_id}: predicted {predicted_score:.2f} -> corrected {user_corrected_label}")
+        logger.info(f"Logged override by Officer {officer_id} for tower {tower_id}: predicted {predicted_score:.2f} -> corrected {user_corrected_label}")
 
     def get_all_feedback(self):
         """Retrieves user feedback history dataframe."""
         conn = sqlite3.connect(self.db_path)
-        df = pd.read_sql_query("SELECT * FROM feedback_log ORDER BY timestamp DESC", conn)
+        df = pd.read_sql_query("SELECT id, officer_id, tower_id, predicted_score, user_corrected_label, notes, timestamp FROM feedback_log ORDER BY timestamp DESC", conn)
         conn.close()
         return df
 
@@ -126,7 +139,8 @@ class TeleShieldFeedbackLoop:
 
 if __name__ == "__main__":
     fb = TeleShieldFeedbackLoop()
-    fb.log_feedback("MY-CELL-502-16-90623", 0.78, 1, "Verified ground flooding in Klang Meru")
+    fb.log_feedback("MY-CELL-502-16-90623", 0.78, 1, officer_id="ENG-7842", notes="Verified ground flooding in Klang Meru")
     retrain_res = fb.retrain_model_on_feedback()
     print("Module 8 Feedback Loop executed successfully!")
+    print(fb.get_all_feedback().head())
     print(retrain_res)

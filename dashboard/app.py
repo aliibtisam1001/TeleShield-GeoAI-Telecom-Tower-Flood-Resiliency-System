@@ -22,8 +22,8 @@ from config.config import (
     PROCESSED_DATA_DIR,
     CACHE_DIR
 )
-from src.modules.ingestion import OpenCelliDTowerIngestion, extract_tower_spatial_features
-from src.modules.ml_engine import TeleShieldMLEngine
+from src.modules.ingestion import OpenCelliDTowerIngestion, extract_tower_spatial_features, get_data_mode
+from src.modules.ml_engine import TeleShieldMLEngine, compute_did_agreement
 from src.modules.explainability import TeleShieldExplainability
 from src.modules.feedback_loop import TeleShieldFeedbackLoop
 from src.modules.fairness_audit import TeleShieldFairnessAudit
@@ -91,6 +91,7 @@ st.markdown("""
         background: var(--surface-card); border: 1px solid var(--border-subtle);
         border-radius: 6px; padding: 8px 12px; font-size: 0.82rem;
         color: var(--text-secondary);
+        display: flex; flex-direction: column; gap: 4px;
     }
     .status-bar-box code {
         color: var(--accent-teal); background: rgba(63, 167, 160, 0.12);
@@ -153,10 +154,10 @@ st.markdown("""
     .did-gauge-svg { width: 58px; height: 58px; transform: rotate(-90deg); }
     .did-gauge-bg { fill: none; stroke: #203A4F; stroke-width: 5; }
     .did-gauge-progress {
-        fill: none; stroke: var(--accent-teal); stroke-width: 5;
+        fill: none; stroke-width: 5;
         stroke-linecap: round;
         stroke-dasharray: 125.6;
-        stroke-dashoffset: 16.6;
+        transition: stroke-dashoffset 0.4s ease;
     }
 
     /* ===== Tabs ===== */
@@ -247,6 +248,9 @@ def load_scored_data():
     if not scored_path.exists():
         run_daily_pipeline_refresh()
     df = pd.read_csv(scored_path)
+    # Ensure confidence_score exists
+    if "confidence_score" not in df.columns and "flood_probability" in df.columns:
+        df["confidence_score"] = np.round(np.abs(df["flood_probability"] - 0.5) * 200.0, 1)
     return df
 
 
@@ -265,6 +269,12 @@ refresh_log = load_refresh_timestamp()
 fb_engine = TeleShieldFeedbackLoop()
 explainer = TeleShieldExplainability()
 auditor = TeleShieldFairnessAudit()
+data_mode_info = get_data_mode()
+
+# Compute live dynamic DID validation agreement metric (Fix 1)
+did_validation_results = compute_did_agreement(df_towers)
+did_agreement_pct = did_validation_results["agreement_pct"]
+did_benchmark_met = did_validation_results["benchmark_met"]
 
 
 # =====================================================================
@@ -281,9 +291,12 @@ with col_h1:
 
 with col_h2:
     last_up_str = refresh_log.get('last_updated', 'N/A')
+    mode_badge = data_mode_info["badge"]
+    mode_color = data_mode_info["color"]
     st.markdown(f"""
     <div class="status-bar-box">
-        <b>System Refresh:</b> <code>{last_up_str}</code>
+        <div><b>System Refresh:</b> <code>{last_up_str}</code></div>
+        <div><b>Data Mode:</b> <span style="font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:{mode_color}; font-weight:600;">{mode_badge}</span></div>
     </div>
     """, unsafe_allow_html=True)
     if st.button("🔄 Simulate Daily Refresh (06:00 AM)", use_container_width=True):
@@ -306,6 +319,15 @@ low_risk = int((df_towers["risk_tier"] == "LOW").sum())
 high_pct = (high_risk / max(1, total_towers)) * 100.0
 mod_pct = (mod_risk / max(1, total_towers)) * 100.0
 low_pct = (low_risk / max(1, total_towers)) * 100.0
+
+# Dynamic DID gauge offset calculation (Fix 1)
+# Circumference = 2 * PI * 20 = 125.66
+circumference = 125.66
+did_ratio = min(1.0, max(0.0, did_agreement_pct / 100.0))
+gauge_offset = circumference * (1.0 - did_ratio)
+gauge_color = "#3FA7A0" if did_benchmark_met else "#F2A541"
+did_badge_class = "badge-teal" if did_benchmark_met else "badge-amber"
+did_badge_text = "✓ Cleared Target (≥ 85%)" if did_benchmark_met else "⚠️ Target Gap (< 85%)"
 
 st.markdown(f"""
 <div class="kpi-grid">
@@ -351,17 +373,17 @@ st.markdown(f"""
         <div class="kpi-did-info">
             <div class="kpi-header">
                 <span>DID Agreement</span>
-                <span style="color: var(--accent-teal);">🎯</span>
+                <span style="color: {gauge_color};">🎯</span>
             </div>
-            <div class="kpi-value" style="color: var(--accent-teal); font-size: 1.55rem;">86.75%</div>
+            <div class="kpi-value" style="color: {gauge_color}; font-size: 1.55rem;">{did_agreement_pct:.2f}%</div>
             <div class="kpi-subtext">
-                <span class="kpi-badge badge-teal">✓ Cleared Target (≥ 85%)</span>
+                <span class="kpi-badge {did_badge_class}">{did_badge_text}</span>
             </div>
         </div>
         <div>
             <svg class="did-gauge-svg" viewBox="0 0 50 50">
                 <circle class="did-gauge-bg" cx="25" cy="25" r="20" />
-                <circle class="did-gauge-progress" cx="25" cy="25" r="20" />
+                <circle class="did-gauge-progress" cx="25" cy="25" r="20" style="stroke:{gauge_color}; stroke-dashoffset:{gauge_offset:.2f};" />
             </svg>
         </div>
     </div>
@@ -469,12 +491,15 @@ with tab_map:
             else:
                 action = "✅ NORMAL: Operational standard inspection."
 
+            conf_val = row.get("confidence_score", round(abs(row["flood_probability"] - 0.5) * 200.0, 1))
+
             popup_html = f"""
-            <div style="font-family: 'IBM Plex Sans', sans-serif; background: #152A3D; color: #EDEEF0; padding: 10px; border-radius: 6px; border: 1px solid #203A4F; width: 230px;">
+            <div style="font-family: 'IBM Plex Sans', sans-serif; background: #152A3D; color: #EDEEF0; padding: 10px; border-radius: 6px; border: 1px solid #203A4F; width: 235px;">
                 <h4 style="margin:0 0 4px 0; color:#EDEEF0; font-size:13px; font-family:'IBM Plex Mono',monospace;">{row['tower_id']}</h4>
                 <p style="margin:2px 0; font-size:12px; color:#9BA8B5;"><b>District:</b> {row['district']}</p>
                 <p style="margin:2px 0; font-size:12px; color:#9BA8B5;"><b>Risk Score:</b> <span style="color:{color}; font-weight:700; font-family:'IBM Plex Mono',monospace;">{row['risk_pct']}% ({tier})</span></p>
-                <p style="margin:2px 0; font-size:11px; color:#9BA8B5;"><b>Elevation:</b> {row['elevation']}m | <b>Rain 7d:</b> {row['rainfall_7d_mm']}mm</p>
+                <p style="margin:2px 0; font-size:11px; color:#9BA8B5;"><b>Certainty:</b> <span style="color:var(--accent-teal); font-family:'IBM Plex Mono',monospace;">{conf_val:.1f}%</span> | <b>Elev:</b> {row['elevation']}m</p>
+                <p style="margin:2px 0; font-size:11px; color:#9BA8B5;"><b>Rain 7d:</b> {row['rainfall_7d_mm']}mm</p>
                 <hr style="margin:6px 0; border:none; border-top:1px solid #203A4F;">
                 <p style="font-size:11px; margin:0; color:#EDEEF0;"><b>Trigger:</b> {action}</p>
             </div>
@@ -491,12 +516,12 @@ with tab_map:
                 popup=folium.Popup(popup_html, max_width=260)
             ).add_to(m)
 
-        # Render map — no HTML wrapper, direct Streamlit component
+        # Render map — direct Streamlit component
         st_folium(m, height=540, use_container_width=True, returned_objects=[])
 
 
 # =====================================================================
-# TAB 2: Ranked Risk Leaderboard Table
+# TAB 2: Ranked Risk Leaderboard Table (Fix 4: Added Confidence Score)
 # =====================================================================
 with tab_ranked:
     st.subheader("📋 Priority Ranked Risk Leaderboard")
@@ -511,12 +536,19 @@ with tab_ranked:
             df_sorted["district"].str.contains(search_query, case=False)
         ]
 
-    disp_cols = ["tower_id", "district", "region_tag", "risk_pct", "risk_tier", "elevation", "dist_to_river_km", "rainfall_7d_mm"]
+    disp_cols = ["tower_id", "district", "region_tag", "risk_pct", "confidence_score", "risk_tier", "elevation", "dist_to_river_km", "rainfall_7d_mm"]
     st.dataframe(
-        df_sorted[disp_cols].style.format({"risk_pct": "{:.1f}%", "elevation": "{:.1f}m", "dist_to_river_km": "{:.2f}km"}),
+        df_sorted[disp_cols].style.format({
+            "risk_pct": "{:.1f}%",
+            "confidence_score": "{:.1f}",
+            "elevation": "{:.1f}m",
+            "dist_to_river_km": "{:.2f}km"
+        }),
         use_container_width=True,
         height=450
     )
+
+    st.caption("ℹ️ **Confidence Score (0–100):** Reflects epistemic certainty based on distance from the 50/50 decision boundary ($|p - 0.5| \\times 200$). It measures model decisiveness, not validated accuracy.")
 
 
 # =====================================================================
@@ -552,7 +584,7 @@ with tab_shap:
 
 
 # =====================================================================
-# TAB 4: Human-in-the-Loop Feedback & On-Demand Retraining
+# TAB 4: Human-in-the-Loop Feedback & On-Demand Retraining (Fix 2: Added Officer ID)
 # =====================================================================
 with tab_feedback:
     st.subheader("💬 Human-in-the-Loop Feedback & Model Retraining")
@@ -563,6 +595,7 @@ with tab_feedback:
     with fb_col1:
         st.markdown("### 📝 Submit Manual Risk Override")
         with st.form("feedback_form"):
+            officer_id_input = st.text_input("👮 Officer / Field Engineer ID", value="ENG-4821", help="Required: Enter authorized field inspector ID")
             target_tower = st.selectbox("Select Target Tower ID", options=df_towers["tower_id"].tolist())
             current_pred = df_towers[df_towers["tower_id"] == target_tower]["flood_probability"].iloc[0]
             st.info(f"Current Model Predicted Risk: **{current_pred*100:.1f}%**")
@@ -572,8 +605,11 @@ with tab_feedback:
             submit_btn = st.form_submit_button("💾 Save Feedback Entry")
 
             if submit_btn:
-                fb_engine.log_feedback(target_tower, current_pred, corrected_label, notes)
-                st.success(f"Successfully logged override for tower {target_tower}!")
+                if not officer_id_input or not officer_id_input.strip():
+                    st.error("❌ Officer ID is required before submitting an override!")
+                else:
+                    fb_engine.log_feedback(target_tower, current_pred, corrected_label, officer_id=officer_id_input.strip(), notes=notes)
+                    st.success(f"✅ Successfully logged override by Officer `{officer_id_input.strip()}` for tower `{target_tower}`!")
 
     with fb_col2:
         st.markdown("### 🔄 Active Retraining Trigger")
@@ -594,7 +630,7 @@ with tab_feedback:
         st.markdown("### 📜 Feedback Log Audit Trail")
         fb_history = fb_engine.get_all_feedback()
         if not fb_history.empty:
-            st.dataframe(fb_history, use_container_width=True, height=200)
+            st.dataframe(fb_history, use_container_width=True, height=220)
         else:
             st.caption("No feedback overrides logged yet.")
 

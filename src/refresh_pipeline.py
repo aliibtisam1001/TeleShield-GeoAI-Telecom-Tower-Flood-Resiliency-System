@@ -44,6 +44,8 @@ def run_daily_pipeline_refresh():
         engine.train_models(train_df, test_df)
 
     scored_df = engine.predict_towers(df_labeled)
+    from src.modules.ml_engine import compute_did_agreement
+    did_val = compute_did_agreement(scored_df)
 
     # 5. Save updated scored dataframe to cache & processed dir
     output_path = PROCESSED_DATA_DIR / "latest_scored_towers.csv"
@@ -57,6 +59,8 @@ def run_daily_pipeline_refresh():
         "high_risk_count": int((scored_df["risk_tier"] == "HIGH").sum()),
         "moderate_risk_count": int((scored_df["risk_tier"] == "MODERATE").sum()),
         "low_risk_count": int((scored_df["risk_tier"] == "LOW").sum()),
+        "did_agreement_pct": did_val["agreement_pct"],
+        "benchmark_met": did_val["benchmark_met"],
         "status": "SUCCESS"
     }
 
