@@ -1,8 +1,8 @@
 # 🛡️ TeleShield — GeoAI Telecom Tower Flood Resiliency System
 ### ASEAN GeoAI Fusion 2026 Hackathon (Telecommunications Challenge Domain, ESG Theme)
 
-[![Live Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System&branch=main&mainModule=dashboard/app.py)
-[![Deployment Status](https://img.shields.io/badge/Deployment-Live%20on%20Streamlit%20Cloud-success?style=flat&logo=streamlit&logoColor=white)](https://share.streamlit.io/deploy?repository=aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System&branch=main&mainModule=dashboard/app.py)
+[![Live Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aliibtisam1001-teleshield-geoai-telecom-tower-flood--app-utwaq4.streamlit.app)
+[![Deployment Status](https://img.shields.io/badge/Deployment-Live%20on%20Streamlit%20Cloud-success?style=flat&logo=streamlit&logoColor=white)](https://aliibtisam1001-teleshield-geoai-telecom-tower-flood--app-utwaq4.streamlit.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-TeleShield-100000?style=flat&logo=github&logoColor=white)](https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Validation Benchmark](https://img.shields.io/badge/DID%20Agreement-86.75%25%20(Target%20%E2%89%A585%25)-brightgreen.svg)]()
@@ -14,7 +14,7 @@
 
 TeleShield is fully deployed and accessible live in the cloud. Judges and evaluators can explore all 6 interactive modules directly in their browser without local installation:
 
-👉 **[Launch Live TeleShield Cloud Dashboard](https://share.streamlit.io/deploy?repository=aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System&branch=main&mainModule=dashboard/app.py)**
+👉 **[Launch Live TeleShield Cloud Dashboard](https://aliibtisam1001-teleshield-geoai-telecom-tower-flood--app-utwaq4.streamlit.app)**
 
 * **Direct GitHub Repository**: [https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System](https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System)
 * **Target Pilot Region**: Klang Valley, Selangor, Malaysia (`[101.30°E, 2.85°N, 101.85°E, 3.35°N]`)
@@ -227,7 +227,7 @@ Open your browser at `http://localhost:8501`.
   - [x] "Flood Watch" operational civil-infrastructure UI theme.
   - [x] Interactive Folium map with working markers, DID overlays, and popups.
   - [x] Git repository pushed and synced with `.devcontainer`.
-  - [x] Live deployment on Streamlit Community Cloud.
+  - [x] Live deployment on Streamlit Community Cloud: [Live App](https://aliibtisam1001-teleshield-geoai-telecom-tower-flood--app-utwaq4.streamlit.app).
 
 ---
 
