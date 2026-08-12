@@ -17,14 +17,14 @@ TeleShield is fully deployed and accessible live in the cloud. Judges and evalua
 👉 **[Launch Live TeleShield Cloud Dashboard](https://aliibtisam1001-teleshield-geoai-telecom-tower-flood--app-utwaq4.streamlit.app)**
 
 * **Direct GitHub Repository**: [https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System](https://github.com/aliibtisam1001/TeleShield-GeoAI-Telecom-Tower-Flood-Resiliency-System)
-* **Target Pilot Region**: Klang Valley, Selangor, Malaysia (`[101.30°E, 2.85°N, 101.85°E, 3.35°N]`)
+* **Target Pilot Region**: Klang Valley, Malaysia (`[101.30°E, 2.85°N, 101.85°E, 3.35°N]`)
 * **Core Focus**: Critical Telecommunications Infrastructure Protection, Climate Adaptation, ESG Governance.
 
 ---
 
 ## 📌 Executive Summary & Key Achievements
 
-TeleShield is an end-to-end GeoAI and machine learning ensemble system engineered to predict flood risks for telecommunications cell towers across **Klang Valley, Selangor, Malaysia**. 
+TeleShield is an end-to-end GeoAI and machine learning ensemble system engineered to predict flood risks for telecommunications cell towers across **Klang Valley, Malaysia**. 
 
 The system validates its predictions against real historical ground-truth records from the **Department of Irrigation and Drainage (DID) Malaysia** (specifically the catastrophic December 2021 Klang Valley floods), explains individual predictions via **SHAP**, audits sub-regional fairness between Urban Core and Suburban Fringe districts, provides human-in-the-loop SQLite feedback with on-demand model retraining, and refreshes daily via an automated pipeline.
 
@@ -236,4 +236,4 @@ Open your browser at `http://localhost:8501`.
 * **OpenCelliD**: Data from OpenCelliD licensed under Creative Commons Attribution-ShareAlike 4.0 International ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)).
 * **Google Earth Engine**: Data powered by Google Earth Engine (USGS SRTM, JRC Surface Water, Copernicus Sentinel, UCSB CHIRPS).
 * **DID Malaysia**: Historical flood records referenced from public Department of Irrigation and Drainage Malaysia reports.
-* **Author / Submission**: ASEAN GeoAI Fusion 2026 Hackathon Prototype by `aliibtisam1001`.
+* **Author / Submission**: ASEAN GeoAI Fusion 2026 Hackathon Prototype built by team **AIU Tigers** (`aliibtisam1001`).
